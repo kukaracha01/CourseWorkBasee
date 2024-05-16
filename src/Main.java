@@ -23,48 +23,41 @@ public class Main {
         for (int i = 0; i < employees.length; i++) {
             System.out.println(employees[i]);
         }
-        return;
     }
 
-    public static void allExpensesForSalary(Employee[] employees) {
+    public static int allExpensesForSalary(Employee[] employees) {
         int allExpenses = 0;
         for (int i = 0; i < employees.length; i++) {
-            allExpenses = allExpenses + employees[i].getSalaryEmployee();
+            allExpenses += employees[i].getSalaryEmployee();
         }
         System.out.println("Сумма всех затрат на ЗП в месяц равна " + allExpenses);
-        return;
+        return allExpenses;
     }
 
     public static void minimalSalaryEmployee(Employee[] employees) {
-        int minimalSalary = 999999999;
+        int minimalSalary = employees[0].getSalaryEmployee();
         for (int i = 0; i < employees.length; i++) {
             if (employees[i].getSalaryEmployee() < minimalSalary) {
                 minimalSalary = employees[i].getSalaryEmployee();
             }
         }
         System.out.println("Минимальная ЗП в месяц равна " + minimalSalary);
-        return;
     }
 
     public static void maximalSalaryEmployee(Employee[] employees) {
-        int maximalSalary = 0;
+        int maximalSalary = employees[0].getSalaryEmployee();
         for (int i = 0; i < employees.length; i++) {
             if (employees[i].getSalaryEmployee() > maximalSalary) {
                 maximalSalary = employees[i].getSalaryEmployee();
             }
         }
         System.out.println("Минимальная ЗП в месяц равна " + maximalSalary);
-        return;
     }
 
     public static void avarageSalaryEmployees(Employee[] employees) {
-        int allExpenses = 0;
-        for (int i = 0; i < employees.length; i++) {
-            allExpenses = allExpenses + employees[i].getSalaryEmployee();
-        }
+        int allExpenses = allExpensesForSalary(employees);
         int avarageSalary = allExpenses / employees.length;
         System.out.println("Среднее значение ЗП в месяц равна " + avarageSalary);
-        return;
     }
 
     public static void allFullNameEmployees(Employee[] employees) {

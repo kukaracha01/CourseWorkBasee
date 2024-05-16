@@ -1,5 +1,7 @@
 import java.util.Objects;
 
+import static java.util.Objects.hash;
+
 public class Employee {
     private String fullName;
     private int salaryEmployee;
@@ -11,7 +13,7 @@ public class Employee {
         this.id = counterId();
     }
 
-    public static int counterId() {
+    private static int counterId() {
         id++;
         return id;
     }
@@ -50,7 +52,7 @@ public class Employee {
 
     @Override
     public int hashCode() {
-        return java.util.Objects.hash(fullName, id, salaryEmployee);
+        return hash(fullName, id, salaryEmployee);
     }
 
     @Override
